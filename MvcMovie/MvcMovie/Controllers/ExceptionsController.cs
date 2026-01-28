@@ -3,8 +3,15 @@ using System.Web.Mvc;
 
 namespace MvcMovie.Controllers
 {
-    public class ErrorsController : Controller
+    public class ExceptionsController : Controller
     {
+        public ActionResult Index()
+        {
+            ViewBag.Message = "Page for testing exepction handling.";
+
+            return View();
+        }
+
         [HttpPost]
         public ActionResult NullReferenceException()
         {

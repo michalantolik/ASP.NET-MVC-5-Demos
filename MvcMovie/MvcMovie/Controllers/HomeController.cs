@@ -26,12 +26,5 @@ namespace MvcMovie.Controllers
 
             return View();
         }
-
-        public ActionResult Errors()
-        {
-            ViewBag.Message = "Page for testing error handling.";
-
-            return View();
-        }
     }
 }
