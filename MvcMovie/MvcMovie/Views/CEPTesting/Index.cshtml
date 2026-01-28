@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Test Custom-Error-Pages (CEP)";
+}
+
+<main aria-labelledby="title">
+    <h2 id="title">@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+
+    <p>Force specific HttpStatus, HttpException or other C# exception.</p>
+
+    <hr />
+
+    <!-- #region Force specific HttpStatus -->
+    <form method="post" action="/CEPTesting/HttpStatus500">
+        <button type="submit">HttpStatus 500</button>
+    </form>
+    <!-- #endregion Force specific HttpStatus -->
+
+    <hr />
+
+    <!-- #region Force specific HttpException -->
+    <form method="post" action="/CEPTesting/HttpException500">
+        <button type="submit">HttpException 500</button>
+    </form>
+    <!-- #endregion Force specific HttpException -->
+
+    <hr />
+
+    <!-- #region Force other C# excepction -->
+    <form method="post" action="/CEPTesting/NullReferenceException">
+        <button type="submit">NullReferenceException</button>
+    </form>
+    <br />
+    <form method="post" action="/CEPTesting/InvalidOperationException">
+        <button type="submit">InvalidOperationException</button>
+    </form>
+    <br />
+    <form method="post" action="/CEPTesting/DivideByZeroException">
+        <button type="submit">DivideByZeroException</button>
+    </form>
+    <!-- #endregion Force other C# excepction -->
+
+</main>
