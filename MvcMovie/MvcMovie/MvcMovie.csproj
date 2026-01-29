@@ -180,8 +180,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\CEPTesting\Index.cshtml" />
-    <Content Include="Views\Error\InternalServerError.cshtml" />
-    <Content Include="Views\Error\FallbackError.cshtml" />
+    <Content Include="Views\Error\HttpStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

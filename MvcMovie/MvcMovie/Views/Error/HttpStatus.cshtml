@@ -1,0 +1,112 @@
+﻿@{
+    Layout = null;
+
+    var statusCode = ViewBag.StatusCode ?? 500;
+    var title = ViewBag.Title ?? "Error";
+    var message = ViewBag.Message ?? "An unexpected error occurred.";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@statusCode – @title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: #f5f6f8;
+            color: #333;
+        }
+
+        .error-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-card {
+            max-width: 520px;
+            padding: 40px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 72px;
+            font-weight: 700;
+            color: #d9534f;
+            margin-bottom: 10px;
+        }
+
+        .error-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .error-message {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .error-actions a {
+            display: inline-block;
+            padding: 10px 18px;
+            margin: 0 6px;
+            font-size: 14px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #0078d4;
+        }
+
+            .error-actions a.secondary {
+                background-color: #6c757d;
+            }
+
+            .error-actions a:hover {
+                opacity: 0.9;
+            }
+
+        .error-footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <div class="error-card">
+            <div class="error-code">@statusCode</div>
+
+            <div class="error-title">
+                @title
+            </div>
+
+            <div class="error-message">
+                @message
+            </div>
+
+            <div class="error-actions">
+                <a href="/">Go to homepage</a>
+                <a href="javascript:history.back()" class="secondary">Go back</a>
+            </div>
+
+            <div class="error-footer">
+                Error code: @statusCode
+            </div>
+        </div>
+    </div>
+</body>
+</html>

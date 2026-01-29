@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,13 +11,14 @@ namespace MvcMovie.Controllers
             return View();
         }
 
-
         #region Force specific HttpStatus
 
         [HttpPost]
-        public ActionResult HttpStatus500()
+        public ActionResult HttpStatus(int? code)
         {
-            return new HttpStatusCodeResult(500, "Forced HttpStatus 500");
+            var statusCode = code ?? 500;
+
+            return new HttpStatusCodeResult(statusCode, $"Forced HttpStatus {statusCode}");
         }
 
         #endregion Force specific HttpStatus
@@ -27,9 +27,11 @@ namespace MvcMovie.Controllers
         #region Force specific HttpException
 
         [HttpPost]
-        public ActionResult HttpException500()
+        public ActionResult HttpException(int? code)
         {
-            throw new HttpException((int)HttpStatusCode.InternalServerError, "Forced HttpException 500");
+            var statusCode = code ?? 500;
+
+            throw new HttpException(statusCode, $"Forced HttpException {statusCode}");
         }
 
         #endregion Force specific HttpException
